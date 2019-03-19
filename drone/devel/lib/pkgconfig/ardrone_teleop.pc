@@ -1,0 +1,8 @@
+prefix=/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/devel
+
+Name: ardrone_teleop
+Description: Description of ardrone_teleop
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/devel/lib 
+Requires: 

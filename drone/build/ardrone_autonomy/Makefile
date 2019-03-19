@@ -56,6 +56,39 @@ CMAKE_BINARY_DIR = /home/hammerviking/robotic_software/ardrone_moving_landing_pl
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -100,39 +133,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build/CMakeFiles /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build/ardrone_autonomy/CMakeFiles/progress.marks
@@ -166,139 +166,574 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/rule
+ardrone_autonomy/CMakeFiles/ardronelib.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardronelib.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardronelib.dir/rule
 
 # Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/rule
+ardronelib: ardrone_autonomy/CMakeFiles/ardronelib.dir/rule
 
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000
+.PHONY : ardronelib
 
 # fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000/fast
+ardronelib/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardronelib.dir/build.make ardrone_autonomy/CMakeFiles/ardronelib.dir/build
+.PHONY : ardronelib/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/rule
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-ardrone_autonomy_generate_messages_cpp: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/rule
+ardrone_autonomy_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
 
-.PHONY : ardrone_autonomy_generate_messages_cpp
+.PHONY : ardrone_autonomy_generate_messages_nodejs
 
 # fast build rule for target.
-ardrone_autonomy_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/build
-.PHONY : ardrone_autonomy_generate_messages_cpp/fast
+ardrone_autonomy_generate_messages_nodejs/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/build
+.PHONY : ardrone_autonomy_generate_messages_nodejs/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/roslint.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/roslint.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/roslint.dir/rule
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-roslint: ardrone_autonomy/CMakeFiles/roslint.dir/rule
+ardrone_autonomy_generate_messages_lisp: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/rule
 
-.PHONY : roslint
+.PHONY : ardrone_autonomy_generate_messages_lisp
 
 # fast build rule for target.
-roslint/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/roslint.dir/build.make ardrone_autonomy/CMakeFiles/roslint.dir/build
-.PHONY : roslint/fast
+ardrone_autonomy_generate_messages_lisp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/build
+.PHONY : ardrone_autonomy_generate_messages_lisp/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/rule
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/rule
 
 # Convenience name for target.
-ardrone_autonomy_generate_messages: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/rule
+ardrone_autonomy_geneus: ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/rule
 
-.PHONY : ardrone_autonomy_generate_messages
+.PHONY : ardrone_autonomy_geneus
 
 # fast build rule for target.
-ardrone_autonomy_generate_messages/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/build
-.PHONY : ardrone_autonomy_generate_messages/fast
+ardrone_autonomy_geneus/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/build
+.PHONY : ardrone_autonomy_geneus/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-tf2_msgs_generate_messages_py: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
+ardrone_autonomy_generate_messages_eus: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/rule
 
-.PHONY : tf2_msgs_generate_messages_py
+.PHONY : ardrone_autonomy_generate_messages_eus
 
 # fast build rule for target.
-tf2_msgs_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
-.PHONY : tf2_msgs_generate_messages_py/fast
+ardrone_autonomy_generate_messages_eus/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/build
+.PHONY : ardrone_autonomy_generate_messages_eus/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+ardrone_autonomy_gencpp: ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/rule
 
-.PHONY : actionlib_msgs_generate_messages_nodejs
+.PHONY : ardrone_autonomy_gencpp
 
 # fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
+ardrone_autonomy_gencpp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/build
+.PHONY : ardrone_autonomy_gencpp/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/rule
 
 # Convenience name for target.
-tf2_msgs_generate_messages_eus: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+ardrone_autonomy_genlisp: ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/rule
 
-.PHONY : tf2_msgs_generate_messages_eus
+.PHONY : ardrone_autonomy_genlisp
 
 # fast build rule for target.
-tf2_msgs_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
-.PHONY : tf2_msgs_generate_messages_eus/fast
+ardrone_autonomy_genlisp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/build
+.PHONY : ardrone_autonomy_genlisp/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/rule
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/rule
 
 # Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/rule
+_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/rule
 
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_watchdog
 
 # fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw/fast
+_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_watchdog/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_lisp: ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/rule
 
-.PHONY : actionlib_msgs_generate_messages_lisp
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision
 
 # fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_wifi: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_wifi
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_wifi/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_wifi/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/rule
+
+# Convenience name for target.
+roslint_ardrone_autonomy: ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/rule
+
+.PHONY : roslint_ardrone_autonomy
+
+# fast build rule for target.
+roslint_ardrone_autonomy/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/build.make ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/build
+.PHONY : roslint_ardrone_autonomy/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_FlightAnim: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_FlightAnim
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_FlightAnim/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_FlightAnim/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_CamSelect: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_CamSelect
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_CamSelect/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_CamSelect/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_time: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_time
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_time/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_time/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_vector21: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_vector21
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_vector21/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_vector21/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/rule
+
+# Convenience name for target.
+ardrone_autonomy_generate_messages_py: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/rule
+
+.PHONY : ardrone_autonomy_generate_messages_py
+
+# fast build rule for target.
+ardrone_autonomy_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/build
+.PHONY : ardrone_autonomy_generate_messages_py/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/rule
+
+# Convenience name for target.
+ardrone_autonomy_gennodejs: ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/rule
+
+.PHONY : ardrone_autonomy_gennodejs
+
+# fast build rule for target.
+ardrone_autonomy_gennodejs/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/build
+.PHONY : ardrone_autonomy_gennodejs/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_RecordEnable: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_RecordEnable
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_RecordEnable/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_RecordEnable/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_demo: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_demo
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_demo/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_demo/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_py: ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/rule
+
+.PHONY : tf_generate_messages_py
+
+# fast build rule for target.
+tf_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/build
+.PHONY : tf_generate_messages_py/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/rule
+
+# Convenience name for target.
+ardrone_autonomy_genpy: ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/rule
+
+.PHONY : ardrone_autonomy_genpy
+
+# fast build rule for target.
+ardrone_autonomy_genpy/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/build
+.PHONY : ardrone_autonomy_genpy/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+
+.PHONY : tf_generate_messages_nodejs
+
+# fast build rule for target.
+tf_generate_messages_nodejs/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/build
+.PHONY : tf_generate_messages_nodejs/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_lisp: ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/rule
+
+.PHONY : tf_generate_messages_lisp
+
+# fast build rule for target.
+tf_generate_messages_lisp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/build
+.PHONY : tf_generate_messages_lisp/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+tf2_msgs_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : tf2_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+tf2_msgs_generate_messages_nodejs/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
+.PHONY : tf2_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+tf_generate_messages_eus: ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/rule
+
+.PHONY : tf_generate_messages_eus
+
+# fast build rule for target.
+tf_generate_messages_eus/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/build
+.PHONY : tf_generate_messages_eus/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_cpp: ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_altitude: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_altitude
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_altitude/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_altitude/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/rule
+
+# Convenience name for target.
+actionlib_generate_messages_py: ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/rule
+
+.PHONY : actionlib_generate_messages_py
+
+# fast build rule for target.
+actionlib_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/build
+.PHONY : actionlib_generate_messages_py/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_references: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_references
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_references/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_references/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_magneto: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_magneto
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_magneto/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_magneto/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+sensor_msgs_generate_messages_nodejs/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+.PHONY : sensor_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+actionlib_msgs_generate_messages_eus: ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+
+.PHONY : actionlib_msgs_generate_messages_eus
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_eus/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+.PHONY : actionlib_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 ardrone_autonomy/CMakeFiles/actionlib_generate_messages_lisp.dir/rule:
@@ -316,19 +751,19 @@ actionlib_generate_messages_lisp/fast:
 .PHONY : actionlib_generate_messages_lisp/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/rule
+ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-actionlib_generate_messages_py: ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/rule
+actionlib_generate_messages_eus: ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/rule
 
-.PHONY : actionlib_generate_messages_py
+.PHONY : actionlib_generate_messages_eus
 
 # fast build rule for target.
-actionlib_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_generate_messages_py.dir/build
-.PHONY : actionlib_generate_messages_py/fast
+actionlib_generate_messages_eus/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/build
+.PHONY : actionlib_generate_messages_eus/fast
 
 # Convenience name for target.
 ardrone_autonomy/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule:
@@ -376,96 +811,6 @@ sensor_msgs_generate_messages_eus/fast:
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_py: ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/rule
-
-.PHONY : tf_generate_messages_py
-
-# fast build rule for target.
-tf_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_py: ardrone_autonomy/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/roscpp_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_genpy: ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/rule
-
-.PHONY : ardrone_autonomy_genpy
-
-# fast build rule for target.
-ardrone_autonomy_genpy/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_genpy.dir/build
-.PHONY : ardrone_autonomy_genpy/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-tf2_msgs_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
-.PHONY : tf2_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_lisp: ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/rule
-
-.PHONY : tf_generate_messages_lisp
-
-# fast build rule for target.
-tf_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
-
-# Convenience name for target.
 ardrone_autonomy/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
 	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
 .PHONY : ardrone_autonomy/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
@@ -481,289 +826,49 @@ actionlib_generate_messages_cpp/fast:
 .PHONY : actionlib_generate_messages_cpp/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_py: ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+sensor_msgs_generate_messages_py: ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_py
+.PHONY : sensor_msgs_generate_messages_py
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
+sensor_msgs_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
+ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-tf2_msgs_generate_messages_cpp: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
+sensor_msgs_generate_messages_lisp: ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : tf2_msgs_generate_messages_cpp
+.PHONY : sensor_msgs_generate_messages_lisp
 
 # fast build rule for target.
-tf2_msgs_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
-.PHONY : tf2_msgs_generate_messages_cpp/fast
+sensor_msgs_generate_messages_lisp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+.PHONY : sensor_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/rule
+ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_time: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/rule
+tf2_msgs_generate_messages_lisp: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_time
+.PHONY : tf2_msgs_generate_messages_lisp
 
 # fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_time/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_time.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_time/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_matrix33: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_matrix33
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_matrix33/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_matrix33/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_py: ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_py
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
-.PHONY : actionlib_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: ardrone_autonomy/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make ardrone_autonomy/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_watchdog
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_watchdog.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_watchdog/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_genlisp: ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/rule
-
-.PHONY : ardrone_autonomy_genlisp
-
-# fast build rule for target.
-ardrone_autonomy_genlisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_genlisp.dir/build
-.PHONY : ardrone_autonomy_genlisp/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: ardrone_autonomy/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_RecordEnable: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_RecordEnable
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_RecordEnable/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_RecordEnable.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_RecordEnable/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_gennodejs: ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/rule
-
-.PHONY : ardrone_autonomy_gennodejs
-
-# fast build rule for target.
-ardrone_autonomy_gennodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_gennodejs.dir/build
-.PHONY : ardrone_autonomy_gennodejs/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-
-.PHONY : tf_generate_messages_nodejs
-
-# fast build rule for target.
-tf_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/tf_generate_messages_nodejs.dir/build
-.PHONY : tf_generate_messages_nodejs/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_video_stream
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_video_stream/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_eus: ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_generate_messages_eus
-
-# fast build rule for target.
-actionlib_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_generate_messages_eus.dir/build
-.PHONY : actionlib_generate_messages_eus/fast
+tf2_msgs_generate_messages_lisp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
+.PHONY : tf2_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 ardrone_autonomy/CMakeFiles/tf_generate_messages_cpp.dir/rule:
@@ -796,109 +901,19 @@ std_srvs_generate_messages_eus/fast:
 .PHONY : std_srvs_generate_messages_eus/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
+ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-tf2_msgs_generate_messages_lisp: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
+std_srvs_generate_messages_py: ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/rule
 
-.PHONY : tf2_msgs_generate_messages_lisp
+.PHONY : std_srvs_generate_messages_py
 
 # fast build rule for target.
-tf2_msgs_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
-.PHONY : tf2_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_demo: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_demo
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_demo/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_demo.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_demo/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_games: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_games
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_games/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_games/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: ardrone_autonomy/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
+std_srvs_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
 
 # Convenience name for target.
 ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
@@ -931,79 +946,304 @@ std_srvs_generate_messages_nodejs/fast:
 .PHONY : std_srvs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/rule
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/rule
 
 # Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_references: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/rule
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/rule
 
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_references
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf
 
 # fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_references/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_references.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_references/fast
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/rule
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/rule
 
 # Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/rule
+_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/rule
 
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed
 
 # fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures/fast
+_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/rule
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/rule
 
 # Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_pwm: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/rule
+_ardrone_autonomy_generate_messages_check_deps_Navdata: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/rule
 
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_pwm
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_Navdata
 
 # fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_pwm/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_pwm/fast
+_ardrone_autonomy_generate_messages_check_deps_Navdata/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_Navdata/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+_ardrone_autonomy_generate_messages_check_deps_vector31: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_lisp
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_vector31
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+_ardrone_autonomy_generate_messages_check_deps_vector31/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_vector31/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/rule
+ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/rule
+actionlib_msgs_generate_messages_lisp: ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send
+.PHONY : actionlib_msgs_generate_messages_lisp
 
 # fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send/fast
+actionlib_msgs_generate_messages_lisp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+.PHONY : actionlib_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_of
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_of/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+actionlib_msgs_generate_messages_py: ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
+
+.PHONY : actionlib_msgs_generate_messages_py
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
+.PHONY : actionlib_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_matrix33: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_matrix33
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_matrix33/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_matrix33.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_matrix33/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+tf2_msgs_generate_messages_cpp: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : tf2_msgs_generate_messages_cpp
+
+# fast build rule for target.
+tf2_msgs_generate_messages_cpp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
+.PHONY : tf2_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+tf2_msgs_generate_messages_eus: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+
+.PHONY : tf2_msgs_generate_messages_eus
+
+# fast build rule for target.
+tf2_msgs_generate_messages_eus/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
+.PHONY : tf2_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+actionlib_msgs_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : actionlib_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_nodejs/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+.PHONY : actionlib_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+tf2_msgs_generate_messages_py: ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
+
+.PHONY : tf2_msgs_generate_messages_py
+
+# fast build rule for target.
+tf2_msgs_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
+.PHONY : tf2_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/rule
+
+# Convenience name for target.
+ardrone_autonomy_generate_messages: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/rule
+
+.PHONY : ardrone_autonomy_generate_messages
+
+# fast build rule for target.
+ardrone_autonomy_generate_messages/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages.dir/build
+.PHONY : ardrone_autonomy_generate_messages/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/roslint.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/roslint.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/roslint.dir/rule
+
+# Convenience name for target.
+roslint: ardrone_autonomy/CMakeFiles/roslint.dir/rule
+
+.PHONY : roslint
+
+# fast build rule for target.
+roslint/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/roslint.dir/build.make ardrone_autonomy/CMakeFiles/roslint.dir/build
+.PHONY : roslint/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+ardrone_autonomy_generate_messages_cpp: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/rule
+
+.PHONY : ardrone_autonomy_generate_messages_cpp
+
+# fast build rule for target.
+ardrone_autonomy_generate_messages_cpp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/build
+.PHONY : ardrone_autonomy_generate_messages_cpp/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_games: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_games
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_games/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_games.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_games/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_rc_references
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_rc_references/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000/fast
 
 # Convenience name for target.
 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_raw_measures.dir/rule:
@@ -1021,19 +1261,64 @@ _ardrone_autonomy_generate_messages_check_deps_navdata_raw_measures/fast:
 .PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_raw_measures/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/rule
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/rule
 
 # Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/rule
+_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/rule
 
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send
 
 # fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw/fast
+_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_pwm: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_pwm
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_pwm/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_pwm.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_pwm/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/rule
+
+# Convenience name for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/rule
+
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures
+
+# fast build rule for target.
+_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures/fast
+
+# Convenience name for target.
+ardrone_autonomy/CMakeFiles/ardrone_driver.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_driver.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/ardrone_driver.dir/rule
+
+# Convenience name for target.
+ardrone_driver: ardrone_autonomy/CMakeFiles/ardrone_driver.dir/rule
+
+.PHONY : ardrone_driver
+
+# fast build rule for target.
+ardrone_driver/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_driver.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_driver.dir/build
+.PHONY : ardrone_driver/fast
 
 # Convenience name for target.
 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_LedAnim.dir/rule:
@@ -1066,36 +1351,6 @@ _ardrone_autonomy_generate_messages_check_deps_navdata_trims/fast:
 .PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_trims/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_Navdata: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_Navdata
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_Navdata/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_Navdata.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_Navdata/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed/fast
-
-# Convenience name for target.
 ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
 	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
 .PHONY : ardrone_autonomy/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
@@ -1111,424 +1366,19 @@ sensor_msgs_generate_messages_cpp/fast:
 .PHONY : sensor_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/rule
+ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/rule
+.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/rule
 
 # Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/rule
+_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/rule
 
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_video_stream
 
 # fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_altitude: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_altitude
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_altitude/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_altitude.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_altitude/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_rc_references
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_rc_references.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_rc_references/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_magneto: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_magneto
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_magneto/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_magneto.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_magneto/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_generate_messages_py: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/rule
-
-.PHONY : ardrone_autonomy_generate_messages_py
-
-# fast build rule for target.
-ardrone_autonomy_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_py.dir/build
-.PHONY : ardrone_autonomy_generate_messages_py/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_vector21: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_vector21
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_vector21/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector21.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_vector21/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_of
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_of.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_of/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_vector31: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_vector31
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_vector31/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_vector31.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_vector31/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_CamSelect: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_CamSelect
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_CamSelect/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_CamSelect.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_CamSelect/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_cpp: ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make ardrone_autonomy/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_FlightAnim: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_FlightAnim
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_FlightAnim/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_FlightAnim.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_FlightAnim/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/rule
-
-# Convenience name for target.
-roslint_ardrone_autonomy: ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/rule
-
-.PHONY : roslint_ardrone_autonomy
-
-# fast build rule for target.
-roslint_ardrone_autonomy/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/build.make ardrone_autonomy/CMakeFiles/roslint_ardrone_autonomy.dir/build
-.PHONY : roslint_ardrone_autonomy/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_wifi: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_wifi
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_wifi/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_wifi.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_wifi/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/rule
-
-# Convenience name for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision: ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/rule
-
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision
-
-# fast build rule for target.
-_ardrone_autonomy_generate_messages_check_deps_navdata_vision/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_vision.dir/build
-.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_vision/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_gencpp: ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/rule
-
-.PHONY : ardrone_autonomy_gencpp
-
-# fast build rule for target.
-ardrone_autonomy_gencpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_gencpp.dir/build
-.PHONY : ardrone_autonomy_gencpp/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_eus: ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_eus
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_generate_messages_eus: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/rule
-
-.PHONY : ardrone_autonomy_generate_messages_eus
-
-# fast build rule for target.
-ardrone_autonomy_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/build
-.PHONY : ardrone_autonomy_generate_messages_eus/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_driver.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_driver.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_driver.dir/rule
-
-# Convenience name for target.
-ardrone_driver: ardrone_autonomy/CMakeFiles/ardrone_driver.dir/rule
-
-.PHONY : ardrone_driver
-
-# fast build rule for target.
-ardrone_driver/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_driver.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_driver.dir/build
-.PHONY : ardrone_driver/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_geneus: ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/rule
-
-.PHONY : ardrone_autonomy_geneus
-
-# fast build rule for target.
-ardrone_autonomy_geneus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_geneus.dir/build
-.PHONY : ardrone_autonomy_geneus/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_eus: ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-.PHONY : tf_generate_messages_eus
-
-# fast build rule for target.
-tf_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/build.make ardrone_autonomy/CMakeFiles/tf_generate_messages_eus.dir/build
-.PHONY : tf_generate_messages_eus/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_generate_messages_lisp: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/rule
-
-.PHONY : ardrone_autonomy_generate_messages_lisp
-
-# fast build rule for target.
-ardrone_autonomy_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_lisp.dir/build
-.PHONY : ardrone_autonomy_generate_messages_lisp/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_generate_messages_nodejs: ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
-
-.PHONY : ardrone_autonomy_generate_messages_nodejs
-
-# fast build rule for target.
-ardrone_autonomy_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/build.make ardrone_autonomy/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/build
-.PHONY : ardrone_autonomy_generate_messages_nodejs/fast
-
-# Convenience name for target.
-ardrone_autonomy/CMakeFiles/ardronelib.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_autonomy/CMakeFiles/ardronelib.dir/rule
-.PHONY : ardrone_autonomy/CMakeFiles/ardronelib.dir/rule
-
-# Convenience name for target.
-ardronelib: ardrone_autonomy/CMakeFiles/ardronelib.dir/rule
-
-.PHONY : ardronelib
-
-# fast build rule for target.
-ardronelib/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/ardronelib.dir/build.make ardrone_autonomy/CMakeFiles/ardronelib.dir/build
-.PHONY : ardronelib/fast
+_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/build.make ardrone_autonomy/CMakeFiles/_ardrone_autonomy_generate_messages_check_deps_navdata_video_stream.dir/build
+.PHONY : _ardrone_autonomy_generate_messages_check_deps_navdata_video_stream/fast
 
 src/ardrone_driver.o: src/ardrone_driver.cpp.o
 
@@ -1644,104 +1494,94 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... edit_cache"
+	@echo "... ardronelib"
+	@echo "... install/strip"
+	@echo "... ardrone_autonomy_generate_messages_nodejs"
+	@echo "... ardrone_autonomy_generate_messages_lisp"
+	@echo "... install/local"
+	@echo "... ardrone_autonomy_geneus"
+	@echo "... ardrone_autonomy_generate_messages_eus"
+	@echo "... ardrone_autonomy_gencpp"
+	@echo "... ardrone_autonomy_genlisp"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_watchdog"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_wifi"
+	@echo "... roslint_ardrone_autonomy"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_FlightAnim"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_CamSelect"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_time"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_vector21"
 	@echo "... install"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000"
-	@echo "... ardrone_autonomy_generate_messages_cpp"
-	@echo "... roslint"
-	@echo "... ardrone_autonomy_generate_messages"
-	@echo "... tf2_msgs_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
-	@echo "... tf2_msgs_generate_messages_eus"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw"
-	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... actionlib_generate_messages_lisp"
+	@echo "... ardrone_autonomy_generate_messages_py"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream"
+	@echo "... list_install_components"
+	@echo "... ardrone_autonomy_gennodejs"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_RecordEnable"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_demo"
+	@echo "... tf_generate_messages_py"
+	@echo "... ardrone_autonomy_genpy"
+	@echo "... tf_generate_messages_nodejs"
+	@echo "... tf_generate_messages_lisp"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure"
+	@echo "... tf2_msgs_generate_messages_nodejs"
+	@echo "... rebuild_cache"
+	@echo "... tf_generate_messages_eus"
+	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_altitude"
 	@echo "... actionlib_generate_messages_py"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_references"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_magneto"
+	@echo "... sensor_msgs_generate_messages_nodejs"
+	@echo "... actionlib_msgs_generate_messages_eus"
+	@echo "... actionlib_generate_messages_lisp"
+	@echo "... actionlib_generate_messages_eus"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... tf_generate_messages_py"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... ardrone_autonomy_genpy"
-	@echo "... tf2_msgs_generate_messages_nodejs"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_kalman_pressure"
-	@echo "... tf_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... tf2_msgs_generate_messages_cpp"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_time"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_matrix33"
-	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_watchdog"
-	@echo "... ardrone_autonomy_genlisp"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_RecordEnable"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... ardrone_autonomy_gennodejs"
-	@echo "... tf_generate_messages_nodejs"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_video_stream"
-	@echo "... actionlib_generate_messages_eus"
+	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... sensor_msgs_generate_messages_lisp"
+	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf_generate_messages_cpp"
 	@echo "... std_srvs_generate_messages_eus"
-	@echo "... tf2_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_demo"
-	@echo "... list_install_components"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_games"
-	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... roscpp_generate_messages_lisp"
+	@echo "... std_srvs_generate_messages_py"
 	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_references"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_pwm"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_raw_measures"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_Navdata"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_vector31"
+	@echo "... actionlib_msgs_generate_messages_lisp"
+	@echo "... test"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision_raw"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision_of"
+	@echo "... actionlib_msgs_generate_messages_py"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_matrix33"
+	@echo "... tf2_msgs_generate_messages_cpp"
+	@echo "... tf2_msgs_generate_messages_eus"
+	@echo "... actionlib_msgs_generate_messages_nodejs"
+	@echo "... tf2_msgs_generate_messages_py"
+	@echo "... ardrone_autonomy_generate_messages"
+	@echo "... roslint"
+	@echo "... ardrone_autonomy_generate_messages_cpp"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_games"
 	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_pressure_raw"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_rc_references"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_zimmu_3000"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_raw_measures"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_trackers_send"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_pwm"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_phys_measures"
+	@echo "... ardrone_driver"
 	@echo "... _ardrone_autonomy_generate_messages_check_deps_LedAnim"
 	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_trims"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_Navdata"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_wind_speed"
 	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision_perf"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_altitude"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_rc_references"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_magneto"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_hdvideo_stream"
-	@echo "... ardrone_autonomy_generate_messages_py"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_vector21"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision_of"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_euler_angles"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_vector31"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision_detect"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_adc_data_frame"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_CamSelect"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_FlightAnim"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_gyros_offsets"
-	@echo "... roslint_ardrone_autonomy"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_wifi"
-	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_vision"
-	@echo "... ardrone_autonomy_gencpp"
-	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... ardrone_autonomy_generate_messages_eus"
-	@echo "... ardrone_driver"
-	@echo "... ardrone_autonomy_geneus"
-	@echo "... install/local"
-	@echo "... tf_generate_messages_eus"
-	@echo "... ardrone_autonomy_generate_messages_lisp"
-	@echo "... ardrone_autonomy_generate_messages_nodejs"
-	@echo "... install/strip"
-	@echo "... ardronelib"
-	@echo "... edit_cache"
+	@echo "... _ardrone_autonomy_generate_messages_check_deps_navdata_video_stream"
 	@echo "... src/ardrone_driver.o"
 	@echo "... src/ardrone_driver.i"
 	@echo "... src/ardrone_driver.s"

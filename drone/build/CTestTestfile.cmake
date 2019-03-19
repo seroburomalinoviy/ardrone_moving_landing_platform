@@ -7,6 +7,7 @@
 subdirs(gtest)
 subdirs(AR.Drone-ROS/cvg_sim_msgs)
 subdirs(AR.Drone-ROS/tum_simulator)
+subdirs(ardrone_teleop)
 subdirs(ardrone_autonomy)
 subdirs(AR.Drone-ROS/cvg_sim_gazebo)
 subdirs(AR.Drone-ROS/cvg_sim_gazebo_plugins)

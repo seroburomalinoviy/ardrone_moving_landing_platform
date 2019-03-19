@@ -9,6 +9,8 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/devel:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build"
+export PYTHONPATH="/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/devel/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/devel/share/common-lisp"
 export ROS_PACKAGE_PATH="/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/src:$ROS_PACKAGE_PATH"
