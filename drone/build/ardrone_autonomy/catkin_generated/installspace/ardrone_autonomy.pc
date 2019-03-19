@@ -1,0 +1,8 @@
+prefix=/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/install
+
+Name: ardrone_autonomy
+Description: Description of ardrone_autonomy
+Version: 1.4.1
+Cflags: -I/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/install/include
+Libs: -L/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/install/lib 
+Requires: roscpp image_transport message_runtime sensor_msgs std_srvs tf camera_info_manager

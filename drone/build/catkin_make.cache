@@ -1,0 +1,2 @@
+AR.Drone-ROS/cvg_sim_gazebo:AR.Drone-ROS/cvg_sim_gazebo_plugins:AR.Drone-ROS/cvg_sim_msgs:AR.Drone-ROS/message_to_tf:AR.Drone-ROS/tum_simulator:ardrone_autonomy
+-DCATKIN_DEVEL_PREFIX=/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/devel -DCMAKE_INSTALL_PREFIX=/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/install -G Unix Makefiles
