@@ -946,6 +946,19 @@ roscpp_generate_messages_py/fast:
 .PHONY : roscpp_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named ardrone_teleop_generate_messages
+
+# Build rule for target.
+ardrone_teleop_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ardrone_teleop_generate_messages
+.PHONY : ardrone_teleop_generate_messages
+
+# fast build rule for target.
+ardrone_teleop_generate_messages/fast:
+	$(MAKE) -f ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/build.make ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/build
+.PHONY : ardrone_teleop_generate_messages/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -2695,6 +2708,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
+	@echo "... ardrone_teleop_generate_messages"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"

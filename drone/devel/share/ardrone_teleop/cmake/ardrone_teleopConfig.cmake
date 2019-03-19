@@ -189,7 +189,7 @@ foreach(depend ${depends})
   list(APPEND ardrone_teleop_EXPORTED_TARGETS ${${ardrone_teleop_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "ardrone_teleop-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${ardrone_teleop_DIR}/${extra})

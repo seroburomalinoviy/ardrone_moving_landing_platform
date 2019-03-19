@@ -1995,7 +1995,7 @@ clean: AR.Drone-ROS/tum_simulator/CMakeFiles/_catkin_empty_exported_target.dir/c
 # Directory level rules for directory ardrone_teleop
 
 # Convenience name for "all" pass in the directory.
-ardrone_teleop/all:
+ardrone_teleop/all: ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/all
 
 .PHONY : ardrone_teleop/all
 
@@ -2007,6 +2007,7 @@ ardrone_teleop/clean: ardrone_teleop/CMakeFiles/roscpp_generate_messages_cpp.dir
 ardrone_teleop/clean: ardrone_teleop/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 ardrone_teleop/clean: ardrone_teleop/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
 ardrone_teleop/clean: ardrone_teleop/CMakeFiles/roscpp_generate_messages_py.dir/clean
+ardrone_teleop/clean: ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/clean
 ardrone_teleop/clean: ardrone_teleop/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 ardrone_teleop/clean: ardrone_teleop/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 ardrone_teleop/clean: ardrone_teleop/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
@@ -2239,6 +2240,43 @@ ardrone_teleop/CMakeFiles/roscpp_generate_messages_py.dir/clean:
 
 # clean rule for target.
 clean: ardrone_teleop/CMakeFiles/roscpp_generate_messages_py.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir
+
+# All Build rule for target.
+ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/all:
+	$(MAKE) -f ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/build.make ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/depend
+	$(MAKE) -f ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/build.make ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build/CMakeFiles --progress-num= "Built target ardrone_teleop_generate_messages"
+.PHONY : ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/all
+
+# Include target in all.
+all: ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build/CMakeFiles 0
+.PHONY : ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/rule
+
+# Convenience name for target.
+ardrone_teleop_generate_messages: ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/rule
+
+.PHONY : ardrone_teleop_generate_messages
+
+# clean rule for target.
+ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/clean:
+	$(MAKE) -f ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/build.make ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/clean
+.PHONY : ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/clean
+
+# clean rule for target.
+clean: ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/clean
 
 .PHONY : clean
 

@@ -271,6 +271,21 @@ roscpp_generate_messages_py/fast:
 .PHONY : roscpp_generate_messages_py/fast
 
 # Convenience name for target.
+ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/rule
+.PHONY : ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/rule
+
+# Convenience name for target.
+ardrone_teleop_generate_messages: ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/rule
+
+.PHONY : ardrone_teleop_generate_messages
+
+# fast build rule for target.
+ardrone_teleop_generate_messages/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/build.make ardrone_teleop/CMakeFiles/ardrone_teleop_generate_messages.dir/build
+.PHONY : ardrone_teleop_generate_messages/fast
+
+# Convenience name for target.
 ardrone_teleop/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
 	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/drone/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_teleop/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 .PHONY : ardrone_teleop/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
@@ -335,6 +350,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
+	@echo "... ardrone_teleop_generate_messages"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
