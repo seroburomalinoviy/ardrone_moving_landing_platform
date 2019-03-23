@@ -1,4 +1,4 @@
-material LandingStation/Frame
+material LandingStationAR/Frame
 {
   technique
   {

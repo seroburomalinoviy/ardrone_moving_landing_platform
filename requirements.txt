@@ -1,0 +1,3 @@
+sudo apt-get ros-kinetic-ardrone-autonomy
+sudo apt-get install libv4l-dev
+

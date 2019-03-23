@@ -1,0 +1,15 @@
+(cl:defpackage ros_qr_tracker-srv
+  (:use )
+  (:export
+   "ADDTARGET"
+   "<ADDTARGET-REQUEST>"
+   "ADDTARGET-REQUEST"
+   "<ADDTARGET-RESPONSE>"
+   "ADDTARGET-RESPONSE"
+   "SETTARGET"
+   "<SETTARGET-REQUEST>"
+   "SETTARGET-REQUEST"
+   "<SETTARGET-RESPONSE>"
+   "SETTARGET-RESPONSE"
+  ))
+

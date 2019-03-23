@@ -117,13 +117,18 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/gtest/cmake_install.cmake")
+  include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/camera/camera_umd/camera_umd/cmake_install.cmake")
   include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/drone/AR.Drone-ROS/cvg_sim_msgs/cmake_install.cmake")
   include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/drone/AR.Drone-ROS/tum_simulator/cmake_install.cmake")
   include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/drone/ardrone_teleop/cmake_install.cmake")
+  include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/camera/ros_qr_tracker/cmake_install.cmake")
+  include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/camera/camera_umd/jpeg_streamer/cmake_install.cmake")
   include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/drone/AR.Drone-ROS/cvg_sim_gazebo/cmake_install.cmake")
   include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/drone/AR.Drone-ROS/cvg_sim_gazebo_plugins/cmake_install.cmake")
   include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/drone/AR.Drone-ROS/message_to_tf/cmake_install.cmake")
   include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/simulation/cmake_install.cmake")
+  include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/camera/camera_umd/uvc_camera/cmake_install.cmake")
+  include("/home/hammerviking/robotic_software/ardrone_moving_landing_platform/build/camera/zbar_ros/cmake_install.cmake")
 
 endif()
 

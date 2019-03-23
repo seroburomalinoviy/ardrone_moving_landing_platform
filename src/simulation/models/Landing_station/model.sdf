@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
-  <model name='Landing_station'>
+  <model name='Landing_station_AR'>
     <link name='link_0'>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <inertial>
@@ -28,9 +28,9 @@
         <material>
           <lighting>1</lighting>
           <script>
-            <uri>model://Landing_station/materials/scripts</uri>
-            <uri>model://Landing_station/materials/textures</uri>
-            <name>LandingStation/Frame</name>
+            <uri>model://Landing_station_AR/materials/scripts</uri>
+            <uri>model://Landing_station_AR/materials/textures</uri>
+            <name>LandingStationAR/Frame</name>
           </script>
           <ambient>1 1 1 1</ambient>
           <diffuse>1 1 1 1</diffuse>
