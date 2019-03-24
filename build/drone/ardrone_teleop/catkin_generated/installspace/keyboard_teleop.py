@@ -5,7 +5,6 @@ import roslib; roslib.load_manifest("ardrone_teleop")
 from geometry_msgs.msg import Twist
 
 from os import system
-import getpass
 
 # Library for handling keyboard inputs
 from pynput.keyboard import Key, KeyCode, Listener

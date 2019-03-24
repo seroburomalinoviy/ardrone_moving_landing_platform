@@ -152,7 +152,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(ardrone_teleop_EXPORTED_TARGETS "")
+set(ardrone_teleop_EXPORTED_TARGETS "ardrone_teleop_generate_messages_cpp;ardrone_teleop_generate_messages_eus;ardrone_teleop_generate_messages_lisp;ardrone_teleop_generate_messages_nodejs;ardrone_teleop_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${ardrone_teleop_EXPORTED_TARGETS})
   if(NOT TARGET ${t})

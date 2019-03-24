@@ -89,27 +89,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
+# Special rule for the target test
+test/fast: test
 
-.PHONY : edit_cache/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
+.PHONY : test/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -122,16 +111,27 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target install/strip
+install/strip/fast: install/strip
 
-.PHONY : test/fast
+.PHONY : install/strip/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,214 +166,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
+dynamic_reconfigure_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
 
-.PHONY : actionlib_msgs_generate_messages_py
+.PHONY : dynamic_reconfigure_generate_messages_eus
 
 # fast build rule for target.
-actionlib_msgs_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
-.PHONY : actionlib_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_cpp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_cpp.dir/build
-.PHONY : actionlib_generate_messages_cpp/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_py.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-.PHONY : actionlib_generate_messages_py
-
-# fast build rule for target.
-actionlib_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_py.dir/build
-.PHONY : actionlib_generate_messages_py/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_cpp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_cpp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
-.PHONY : tf2_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_generate_messages_eus
-
-# fast build rule for target.
-actionlib_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_eus.dir/build
-.PHONY : actionlib_generate_messages_eus/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_py.dir/rule
-
-.PHONY : tf_generate_messages_py
-
-# fast build rule for target.
-tf_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_cpp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/rule
-
-.PHONY : tf_generate_messages_cpp
-
-# fast build rule for target.
-tf_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+dynamic_reconfigure_generate_messages_eus/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_eus/fast
 
 # Convenience name for target.
 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
@@ -391,64 +196,19 @@ std_srvs_generate_messages_cpp/fast:
 .PHONY : std_srvs_generate_messages_cpp/fast
 
 # Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_eus.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_eus.dir/rule
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_eus.dir/rule
+trajectory_msgs_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : tf_generate_messages_eus
+.PHONY : trajectory_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-tf_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_eus.dir/build
-.PHONY : tf_generate_messages_eus/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
-.PHONY : actionlib_generate_messages_nodejs/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_cpp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
-.PHONY : actionlib_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
-
-# Convenience name for target.
-gazebo_ros_gencfg: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
-
-.PHONY : gazebo_ros_gencfg
-
-# fast build rule for target.
-gazebo_ros_gencfg/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build
-.PHONY : gazebo_ros_gencfg/fast
+trajectory_msgs_generate_messages_nodejs/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
@@ -466,34 +226,124 @@ std_srvs_generate_messages_nodejs/fast:
 .PHONY : std_srvs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/rule
+trajectory_msgs_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
 
-.PHONY : tf_generate_messages_lisp
+.PHONY : trajectory_msgs_generate_messages_eus
 
 # fast build rule for target.
-tf_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
+trajectory_msgs_generate_messages_eus/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+.PHONY : trajectory_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
 
 # Convenience name for target.
-tf2_msgs_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
+gazebo_ros_gencfg: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/rule
 
-.PHONY : tf2_msgs_generate_messages_nodejs
+.PHONY : gazebo_ros_gencfg
 
 # fast build rule for target.
-tf2_msgs_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
-.PHONY : tf2_msgs_generate_messages_nodejs/fast
+gazebo_ros_gencfg/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_ros_gencfg.dir/build
+.PHONY : gazebo_ros_gencfg/fast
+
+# Convenience name for target.
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_nodejs
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_nodejs/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
+
+# Convenience name for target.
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_cpp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_cpp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_cpp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+
+# Convenience name for target.
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+.PHONY : std_srvs_generate_messages_py
+
+# fast build rule for target.
+std_srvs_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
+
+# Convenience name for target.
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_lisp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_lisp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
+
+# Convenience name for target.
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+
+.PHONY : std_srvs_generate_messages_lisp
+
+# fast build rule for target.
+std_srvs_generate_messages_lisp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+.PHONY : std_srvs_generate_messages_lisp/fast
+
+# Convenience name for target.
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_py
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_py/fast
 
 # Convenience name for target.
 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
@@ -511,141 +361,6 @@ dynamic_reconfigure_gencfg/fast:
 .PHONY : dynamic_reconfigure_gencfg/fast
 
 # Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_generate_messages_lisp.dir/build
-.PHONY : actionlib_generate_messages_lisp/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_eus
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_py
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-
-.PHONY : tf_generate_messages_nodejs
-
-# fast build rule for target.
-tf_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf_generate_messages_nodejs.dir/build
-.PHONY : tf_generate_messages_nodejs/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_eus
-
-# fast build rule for target.
-tf2_msgs_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
-.PHONY : tf2_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_py
-
-# fast build rule for target.
-tf2_msgs_generate_messages_py/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
-.PHONY : tf2_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_lisp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
-.PHONY : tf2_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
-.PHONY : gazebo_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule:
 	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
 .PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
@@ -661,34 +376,19 @@ gazebo_msgs_generate_messages_cpp/fast:
 .PHONY : gazebo_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+gazebo_msgs_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : dynamic_reconfigure_generate_messages_eus
+.PHONY : gazebo_msgs_generate_messages_lisp
 
 # fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
+gazebo_msgs_generate_messages_lisp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
+.PHONY : gazebo_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule:
@@ -721,34 +421,49 @@ gazebo_msgs_generate_messages_py/fast:
 .PHONY : gazebo_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-gazebo_msgs_generate_messages_lisp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
+std_srvs_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
 
-.PHONY : gazebo_msgs_generate_messages_lisp
+.PHONY : std_srvs_generate_messages_eus
 
 # fast build rule for target.
-gazebo_msgs_generate_messages_lisp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
-.PHONY : gazebo_msgs_generate_messages_lisp/fast
+std_srvs_generate_messages_eus/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/std_srvs_generate_messages_eus.dir/build
+.PHONY : std_srvs_generate_messages_eus/fast
 
 # Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-trajectory_msgs_generate_messages_eus: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+gazebo_msgs_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : trajectory_msgs_generate_messages_eus
+.PHONY : gazebo_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
+gazebo_msgs_generate_messages_nodejs/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
+.PHONY : gazebo_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_cpp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_cpp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_cpp/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
+.PHONY : trajectory_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
@@ -766,34 +481,19 @@ trajectory_msgs_generate_messages_lisp/fast:
 .PHONY : trajectory_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-trajectory_msgs_generate_messages_nodejs: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+trajectory_msgs_generate_messages_py: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
 
-.PHONY : trajectory_msgs_generate_messages_nodejs
+.PHONY : trajectory_msgs_generate_messages_py
 
 # fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f CMakeFiles/Makefile2 drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-.PHONY : drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_cpp: drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_cpp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_cpp/fast:
-	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
-.PHONY : trajectory_msgs_generate_messages_cpp/fast
+trajectory_msgs_generate_messages_py/fast:
+	cd /home/hammerviking/robotic_software/ardrone_moving_landing_platform/build && $(MAKE) -f drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make drone/AR.Drone-ROS/cvg_sim_gazebo/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+.PHONY : trajectory_msgs_generate_messages_py/fast
 
 # Help Target
 help:
@@ -803,53 +503,33 @@ help:
 	@echo "... depend"
 	@echo "... list_install_components"
 	@echo "... install"
-	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... actionlib_generate_messages_cpp"
-	@echo "... actionlib_generate_messages_py"
-	@echo "... tf2_msgs_generate_messages_cpp"
-	@echo "... actionlib_generate_messages_eus"
-	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... tf_generate_messages_py"
-	@echo "... std_srvs_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... rebuild_cache"
-	@echo "... tf_generate_messages_eus"
-	@echo "... actionlib_generate_messages_nodejs"
-	@echo "... actionlib_msgs_generate_messages_cpp"
-	@echo "... gazebo_ros_gencfg"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... tf_generate_messages_lisp"
-	@echo "... tf2_msgs_generate_messages_nodejs"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... edit_cache"
-	@echo "... actionlib_generate_messages_lisp"
-	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_py"
-	@echo "... tf_generate_messages_nodejs"
-	@echo "... tf2_msgs_generate_messages_eus"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
-	@echo "... tf2_msgs_generate_messages_py"
-	@echo "... tf2_msgs_generate_messages_lisp"
-	@echo "... gazebo_msgs_generate_messages_nodejs"
-	@echo "... gazebo_msgs_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... test"
+	@echo "... install/local"
 	@echo "... install/strip"
+	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
+	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... gazebo_ros_gencfg"
 	@echo "... dynamic_reconfigure_generate_messages_nodejs"
+	@echo "... dynamic_reconfigure_generate_messages_cpp"
+	@echo "... std_srvs_generate_messages_py"
+	@echo "... dynamic_reconfigure_generate_messages_lisp"
+	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... dynamic_reconfigure_generate_messages_py"
+	@echo "... edit_cache"
+	@echo "... dynamic_reconfigure_gencfg"
+	@echo "... gazebo_msgs_generate_messages_cpp"
+	@echo "... gazebo_msgs_generate_messages_lisp"
 	@echo "... gazebo_msgs_generate_messages_eus"
 	@echo "... gazebo_msgs_generate_messages_py"
-	@echo "... gazebo_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
-	@echo "... install/local"
+	@echo "... std_srvs_generate_messages_eus"
+	@echo "... gazebo_msgs_generate_messages_nodejs"
 	@echo "... trajectory_msgs_generate_messages_cpp"
-	@echo "... test"
+	@echo "... trajectory_msgs_generate_messages_lisp"
+	@echo "... trajectory_msgs_generate_messages_py"
 .PHONY : help
 
 
